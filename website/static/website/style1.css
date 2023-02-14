@@ -1,0 +1,39 @@
+
+@import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans');
+
+:root {
+  --color-primary: hsl(203, 100%, 38%);
+  --color-text:  hsl(203, 30%, 15%);
+  --color-background: hsl(203, 100%, 98%);
+  --color-border: hsl(203, 33%, 83%);;
+  --color-white: #fff;
+}
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-size: 1rem;
+}
+
+
+.btn {
+  background-color: transparent;
+  box-shadow: 0 0 0 1px var(--color-primary) inset;
+  text-align: center;
+  color: var(--color-primary);
+  display: inline-block;
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
