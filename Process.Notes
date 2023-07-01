@@ -1,0 +1,3 @@
+docker image build -t katka05/mp .	// Image creation
+
+docker run -it -p 8000:8000 --name meetings katka05/mp		// Container creation
