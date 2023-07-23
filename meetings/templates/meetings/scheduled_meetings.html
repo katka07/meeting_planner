@@ -1,0 +1,50 @@
+<!-- scheduled_meetings.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Scheduled Meetings{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'website/meetings.css' %}">
+
+<div class="header">
+    <h1>Scheduled Meetings</h1>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Room</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for meeting in meetings %}
+        <tr>
+            <td>{{ meeting.title }}</td>
+            <td>{{ meeting.date }}</td>
+            <td>{{ meeting.start_time }}</td>
+            <td>{{ meeting.duration }}</td>
+            <td>{{ meeting.room }}</td>
+            <td>
+                <a href="{% url 'meeting_update' meeting.pk %}">Update</a>&emsp;
+                <a href="#" onclick="confirmDelete({{ meeting.pk }}, '{{ meeting.title }}')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br/>
+<a href="{% url 'welcome' %}">Home</a>
+
+<script>
+    function confirmDelete(pk, meetingName) {
+        if (confirm("Are you sure you want to delete the meeting '" + meetingName + "'?")) {
+            window.location.href = "{% url 'meeting_delete' 0 %}".replace("0", pk);
+        }
+    }
+</script>
+{% endblock %}

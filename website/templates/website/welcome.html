@@ -3,16 +3,28 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-    <h1>Welcome to meeting planner!</h1>
-    <br/>
-    <img src="{% static 'website/cal.png' %}" width="100px">
-    <h2>Meetings</h2>
-    <ul>
-        {% for m in meetings %}
-        <li>
-            <a href="{% url 'detail' m.id %}">{{ m.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'room' %}">Rooms list</a>&emsp;<a href="{% url 'new' %}">Setup Meeting</a>
+    <div class="header">
+        <h1>Welcome to Meeting Planner</h1>
+    </div>
+
+    <div class="image-container">
+        <img src="{% static 'website/cal.png' %}" width="100px">
+    </div>
+
+    <div class="links-container">
+        <div class="grid">
+            <div class="row">
+                <a href="{% url 'scheduled_meetings' %}">Scheduled Meetings</a>
+                <a href="{% url 'meeting_create' %}">Setup Meeting</a>
+                <a href="{% url 'scheduled_meetings' %}">Update Meeting</a>
+                <a href="{% url 'scheduled_meetings' %}">Delete Meeting</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'room_list' %}">Available Rooms</a>
+                <a href="{% url 'room_create' %}">Setup Room</a>
+                <a href="{% url 'room_list' %}">Update Room</a>
+                <a href="{% url 'room_list' %}">Delete Room</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

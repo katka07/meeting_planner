@@ -1,13 +1,15 @@
+<!-- meeting_detail.html -->
 {% extends "base.html" %}
 
 {% block title %}Meeting: {{ meeting.title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ meeting.title }} </h1>
+    <h1>{{ meeting.title }}</h1>
     <p>
         This meeting has been scheduled on {{ meeting.date }} at
-        {{ meeting.start_time }} in <strong> {{ meeting.room }} </strong>
+        {{ meeting.start_time }} in <strong>{{ meeting.room }}</strong>
     </p>
+    <!-- You can display any other meeting details here as needed -->
     <p>
         <a href="{% url 'welcome' %}"><button>Home</button></a>
     </p>
