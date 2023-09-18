@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'meetings',
+    'django_nose',
+    'pinocchio',
 ]
 
 MIDDLEWARE = [
@@ -54,14 +56,38 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'meeting_planner.wsgi.application'
 
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--verbosity=2',                  # verbose output
+    '--nologcapture',                 # don't output log capture
+    '--with-coverage',                # activate coverage report
+    '--cover-package=meetings',       # coverage reports will apply to these packages
+    '--with-spec',                    # spec style tests
+    '--spec-color',
+    '--with-xunit',                   # enable xunit plugin
+    '--xunit-file=unittests.xml',
+    '--cover-xml',                    # produce XML coverage info
+    '--cover-xml-file=coverage.xml',
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'meetings',
+        'USER': 'admin',
+        'PASSWORD': 'firewall',
+        'HOST': 'localhost', 
+        'PORT': '3306', 
     }
 }
 
