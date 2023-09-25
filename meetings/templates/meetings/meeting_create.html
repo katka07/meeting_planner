@@ -12,6 +12,7 @@
     <div class="container">
         <div class="form-container">
             <form method="post">
+                {% csrf_token %}
                 <table>
                     {{ form }}
                 </table>
