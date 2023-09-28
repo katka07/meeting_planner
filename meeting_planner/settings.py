@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-@n$nd56b5+n0oq+-i96b+!51)-cv$!5piw$pv(nk^gq#lsucel
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", "192.168.56.12", "backend"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -135,4 +135,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
-CSRF_TRUSTED_ORIGINS = ['*', 'http://192.168.56.12', 'http://backend']
+CSRF_TRUSTED_ORIGINS = ['*']
