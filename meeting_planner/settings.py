@@ -134,3 +134,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+CSRF_TRUSTED_ORIGINS = ['http://192.168.*']
