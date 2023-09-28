@@ -9,3 +9,4 @@ pytest-django
 pytest
 urllib3
 wsproto
+django-cors-headers
