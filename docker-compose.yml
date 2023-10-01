@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   django:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: katka05/mp:4
     ports:
       - "8000:8000"
     depends_on:
