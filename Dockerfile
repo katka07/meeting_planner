@@ -2,6 +2,8 @@ FROM python:3.9
 
 ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update -y && apt-get install netcat-traditional -y
+
 WORKDIR /app
 
 COPY requirements.txt /app/
