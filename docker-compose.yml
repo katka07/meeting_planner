@@ -1,14 +1,10 @@
 version: "3.8"
 services:
   app:
-    build: .
-    volumes:
-      - .:/django
     ports:
       - 8000:8000
     image: katka05/mp:postgres
-    container_name: mp_container
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c './wait-for.sh http://db:5432 -- ./serverstart.sh'
     depends_on:
       - db
   db:
@@ -19,4 +15,8 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    container_name: postgres_db
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
