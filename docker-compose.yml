@@ -1,18 +1,22 @@
-version: '3.8'
-
+version: "3.8"
 services:
-  django:
-    image: katka05/mp:4
+  app:
+    build: .
+    volumes:
+      - .:/django
     ports:
-      - "8000:8000"
+      - 8000:8000
+    image: katka05/mp:postgres
+    container_name: mp_container
+    command: python manage.py runserver 0.0.0.0:8000
     depends_on:
-      - mysqldb
-  mysqldb:
-    image: mysql:latest
-    ports: 
-      - "3306:3306"
+      - db
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgres/data
     environment:
-      MYSQL_ROOT_PASSWORD: 'firewall'
-      MYSQL_DATABASE: 'meetings'
-      MYSQL_USER: 'admin'
-      MYSQL_PASSWORD: 'firewall'
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    container_name: postgres_db

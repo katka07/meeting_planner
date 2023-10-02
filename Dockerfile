@@ -1,17 +1,17 @@
-FROM python:3.9-alpine
+FROM python:3.9
 
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY requirements.txt /app/
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY . /app/
 
-ENV DJANGO_SETTINGS_MODULE=meeting_planner.settings
+#ENV DJANGO_SETTINGS_MODULE=meeting_planner.settings
 
-EXPOSE 8000
+#EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

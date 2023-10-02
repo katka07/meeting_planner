@@ -84,12 +84,12 @@ NOSE_ARGS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'meetings',
-        'USER': 'admin',
-        'PASSWORD': 'firewall',
-        'HOST': 'mysqldb', 
-        'PORT': '3306', 
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db', 
+        'PORT': '5432', 
     }
 }
 
