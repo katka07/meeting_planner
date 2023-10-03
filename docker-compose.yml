@@ -20,4 +20,4 @@ services:
         constraints:
           - node.role == manager
 volumes:
-  postgres_data
+  postgres_data:
