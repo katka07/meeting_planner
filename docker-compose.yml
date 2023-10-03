@@ -10,7 +10,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgres/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -19,4 +19,5 @@ services:
       placement:
         constraints:
           - node.role == manager
-
+volumes:
+  postgres_data
